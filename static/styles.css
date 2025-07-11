@@ -1,0 +1,188 @@
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', sans-serif;
+    background-color: transparent;
+    padding-top: 70px;
+}
+
+/* Navbar */
+.navbar {
+    background-color: transparent;
+    color: white;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+.brand {
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.nav-links li a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.nav-links li a:hover {
+    text-decoration: underline;
+}
+
+.hamburger {
+    font-size: 24px;
+    display: none;
+    cursor: pointer;
+}
+
+.login-btn, .register-btn {
+    padding: 6px 12px;
+    border-radius: 6px;
+    background-color: #00b4d8;
+    font-weight: 600;
+}
+
+.register-btn {
+    background-color: #f77f00;
+}
+
+.container {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    max-width: 600px;
+    margin: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    text-align: center;
+}
+
+textarea, input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    font-size: 1rem;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+button {
+    background-color: #0077b6;
+    color: white;
+    padding: 12px 30px;
+    margin-top: 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+#particles-js {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #0f172a;  /* deep navy tech background */
+    z-index: -1;
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .hamburger {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #1a1a2e;
+        position: absolute;
+        top: 60px;
+        right: 0;
+        width: 200px;
+        padding: 10px;
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        padding: 10px 0;
+    }
+}
+
+/* Auth Pages (Login & Register) */
+.auth-container {
+    background-color: white;
+    padding: 40px;
+    max-width: 400px;
+    margin: 100px auto;
+    border-radius: 16px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.auth-container h2 {
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #0077b6;
+}
+
+.auth-container input[type="text"],
+.auth-container input[type="email"],
+.auth-container input[type="password"] {
+    width: 100%;
+    padding: 12px;
+    margin: 12px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.auth-container button {
+    background-color: #00b4d8;
+    color: white;
+    padding: 12px 24px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.auth-container button:hover {
+    background-color: #0077b6;
+}
+
+.auth-container p {
+    margin-top: 15px;
+    font-size: 0.95rem;
+}
+
+.auth-container a {
+    color: #00b4d8;
+    text-decoration: none;
+}
+
+.auth-container a:hover {
+    text-decoration: underline;
+}

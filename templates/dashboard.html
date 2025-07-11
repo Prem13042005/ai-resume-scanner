@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dashboard - AI Resume Scanner</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="brand">AI Resume Scanner</div>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="#upload">Upload Resume</a></li>
+            <li><a href="#profile">Profile</a></li>
+            <li><a href="#help">Help</a></li>
+            <li><a href="/logout" class="logout-btn">Logout</a></li>
+        </ul>
+    </nav>
+
+    <div class="container" id="upload">
+        <h2>📤 Upload Your Resume</h2>
+        <form action="/upload" method="POST" enctype="multipart/form-data">
+            <label for="resume">Upload Resume (PDF):</label>
+            <input type="file" name="resume" accept=".pdf" required><br><br>
+
+            <label for="jobdesc">Paste Job Description:</label><br>
+            <textarea name="jobdesc" rows="8" cols="50" required></textarea><br><br>
+
+            <button type="submit">Analyze Match</button>
+        </form>
+    </div>
+
+    <div class="container" id="profile">
+        <h2>👤 Profile Information</h2>
+        <p><strong>Name:</strong> {{ name }}</p>
+        <p><strong>Email:</strong> {{ email }}</p>
+        <p><strong>Member Since:</strong> {{ created_at }}</p>
+    </div>
+
+    <div class="container" id="history">
+    <h2>📄 Upload History</h2>
+    {% if uploads %}
+        <table border="1" cellpadding="10" style="margin: auto; width: 100%;">
+            <tr>
+                <th>Resume</th>
+                <th>Match Score</th>
+                <th>Uploaded At</th>
+            </tr>
+            {% for upload in uploads %}
+            <tr>
+                <td>{{ upload.filename }}</td>
+                <td>{{ upload.match_score }}%</td>
+                <td>{{ upload.created_at.strftime('%d %b %Y %I:%M %p') }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No uploads yet.</p>
+    {% endif %}
+    </div>
+
+    <div class="container" id="help">
+        <h2>❓ How It Works</h2>
+        <ul style="text-align:left">
+            <li>Upload your resume in PDF format.</li>
+            <li>Paste the job description from any job post.</li>
+            <li>The system will analyze and return a match score.</li>
+            <li>Match history will be added soon.</li>
+        </ul>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": { "value": 60 },
+                "color": { "value": "#00b4d8" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5 },
+                "size": { "value": 3 },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#0077b6",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": { "enable": true, "speed": 2 }
+            },
+            "interactivity": {
+                "events": { "onhover": { "enable": true, "mode": "repulse" } }
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Resume Scanner - Home</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <div id="particles-js"></div>
+
+    <nav class="navbar">
+        <div class="brand">AI Resume Scanner</div>
+        <div class="hamburger" onclick="toggleMenu()">☰</div>
+        <ul class="nav-links" id="navLinks">
+            <li><a href="/">Home</a></li>
+            <li><a href="#features">Features</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="/login" class="login-btn">Login</a></li>
+            <li><a href="/register" class="register-btn">Register</a></li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Welcome to AI Resume Scanner</h1>
+        <p>Upload your resume, paste a job description, and get an AI-powered compatibility score instantly.</p>
+        <br>
+        <a href="/login"><button>Get Started</button></a>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            const nav = document.getElementById('navLinks');
+            nav.classList.toggle('active');
+        }
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": { "value": 60 },
+                "color": { "value": "#00b4d8" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5 },
+                "size": { "value": 3 },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#0077b6",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": { "enable": true, "speed": 2 }
+            },
+            "interactivity": {
+                "events": { "onhover": { "enable": true, "mode": "repulse" } }
+            }
+        });
+    </script>
+</body>
+</html>
